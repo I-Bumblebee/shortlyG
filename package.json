@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && yarn install && yarn run build"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "apollo-boost": "^0.4.9",
+    "apollo-server-express": "^3.10.2",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

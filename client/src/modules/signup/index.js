@@ -1,0 +1,1 @@
+export {default as SignUpC} from "./containers/index"
