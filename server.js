@@ -22,17 +22,27 @@ const app = express();
 (async () => {
   await server.start();
   server.applyMiddleware({ app });
-  app.use(express.static(path.join(__dirname, "/client/build/")));
+  // app.use(express.static(path.join(__dirname, "/client/build/")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "/client/build", "index.html"));
-  });
+  app.use(express.static(path.join(__dirname, "./client/build")));
+  app.get("*", function (_, res) {
+    res.sendFile(
+      path.join(__dirname, "./client/build/index.html"),
+      function (err) {
+        res.status(500).send(err);
+      }
+    );
+  }); 
+
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+  // });
 
   const port_number = process.env.PORT || 4000;
 
   app.listen({ port: port_number }, () =>
     console.log(
-      `Server running on https://shortlyg.herokuapp.com/${server.graphqlPath}`
+      `Server running on https://somewhere.com/${server.graphqlPath}`
     )
   );
 })();
