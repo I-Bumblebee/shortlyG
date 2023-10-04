@@ -4,7 +4,7 @@ const apolloClient = new ApolloClient({
   cache: new InMemoryCache({
     addTypename: true,
   }),
-  uri: "https://shortlyg.herokuapp.com/graphql",
+  uri: "http://localhost:4000/graphql",
 });
 
 export default apolloClient;
